@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Milestones</title>
+<script src='/js/angular/app.js' type='text/javascript'></script>
+<script src='/js/angular/controllers/goalController.js' type='text/javascript'></script>
+
+<body ng-app="goalApp">
+    <header class="site">
+        <div>
+            <h1>SimplyPlan</h1>
+        </div>  
+    </header>
+    <section class="milestones" ng-controller="goalController">
+        <div class="newGoal" ng-repeat="goal in goals">
+            <div class="milestone">{{goal.goalName}}</div>
+            <div class="task">{{goal.active}}</div>
+            <div class="task">{{goal.active}}</div>
+            <div class="clear"></div>
+        </div>
+        <div class="add">
+            <img src="/images/production_files/add.png" alt="add milestone" height="42" width="42" ng-click="addMilestone()" ng-if="!add">
+            <div ng-if="add">
+                <input class="addMilestone" ng-model="newMilestone"></input>
+                <div class="button" ng-click="submitMilestone(newMilestone)">Add Milestone</div>
+            </div>
+        </div>
+    </section>
+
+</body>
