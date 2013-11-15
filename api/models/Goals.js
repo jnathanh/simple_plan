@@ -7,20 +7,23 @@
  */
 
 module.exports = {
-
+	schema: true,
 	attributes: {
 		goalName: "string",
 		active: "boolean",
-		taskCount:"integer",
-		task:{
-			taskID:"integer",
-			taskName:"string",
-			completed:"boolean",
-			startDate:"datetime",
-			endDate:"datetime"
-		},
-		completed:"boolean",
-		endDate:"datetime"
+		completed: "boolean",
+		tasks: "array"	// array of secondary keys
+		// taskCount:"integer",
+		// task:[{
+		// 	taskID: "integer"
+		// }]
+		// 	taskID:"integer",
+		// 	taskName:"string",
+		// 	completed:"boolean",
+		// 	startDate:"datetime",
+		// 	endDate:"datetime"
+		// },
+		// endDate:"datetime"
 	}
 
 };

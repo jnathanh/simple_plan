@@ -11,11 +11,6 @@ $form_background: white;
 	margin:auto;
 	width:50%;
 	display:block;	
-	img{
-		margin: auto;
-		display:block;
-	}
-
 }
 
 .input_field{
@@ -29,6 +24,7 @@ $form_background: white;
 }
 
 .clear{	clear:both;}
+.clearRight{clear:right;}
 
  header{
  	height:50px;
@@ -99,8 +95,23 @@ $form_background: white;
  	width: 200px;
  	margin-bottom:25px;
  	display: inline-block;
- 	float:left;
+ 	float: left;
 }
 .add input{
 	display:inline-block;
+}
+.deleteMilestone{
+	padding: 10;	// this isn't working for some reason
+	float: left;
+}
+.addMilestoneButton {
+	display: block;
+	margin: auto;
+}
+.taskWrapper{
+	float:right;
+}
+.addTaskButton{
+	display:block;
+	margin: auto;
 }
