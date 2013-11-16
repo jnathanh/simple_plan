@@ -9,8 +9,10 @@
 module.exports = {
 	schema: true,
 	attributes: {
-		goalID: "string",	// secondary key
-		taskName: "string"
+		goalID: "string",	// shared key
+		taskName: "string",
+		completed: "boolean",
+		week: "integer"
 	}
 
 };

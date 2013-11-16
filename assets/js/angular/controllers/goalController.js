@@ -29,9 +29,17 @@ app.controller("goalController",function($scope, Restangular){
 		milestone.put().then(function(){
 			refreshMilestones();
 		});
-
+	};
+////////////// Multi-Use ///////////////////////////////
+	$scope.toggleCompletion = function(goalTask){
+		goalTask.completed = !goalTask.completed;
+		goalTask.put().then(function(){
+			refreshMilestones();
+			refreshTasks();
+		});
 	};
 ////////////// Tasks ///////////////////////////////   could probably modify these and the goals functions to have 1 set work for both later
+	$scope.currentWeek = 1;
 	$scope.tasks=[];
 	var taskAPI = Restangular.all('Tasks');
 	var refreshTasks = function () {
@@ -48,6 +56,8 @@ app.controller("goalController",function($scope, Restangular){
 			{
 				goalID: goal.id,
 				taskName: newTaskName,
+				completed: false,
+				week: $scope.currentWeek
 			}
 		);
 		refreshTasks();
@@ -60,7 +70,12 @@ app.controller("goalController",function($scope, Restangular){
 		task.put().then(function(){
 			refreshTasks();
 		});
-
+	};
+	$scope.completeTask = function(task){
+		task.completed = true;
+		task.put().then(function(){
+			refreshTasks();
+		});
 	};
 
 

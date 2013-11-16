@@ -3,13 +3,15 @@ $primary_dark:#146f95;
 $secondary_color: #e26029;
 $site_background: white;
 $form_background: white;
+$completed_color: yellow;
+$uncompleted_color: red;
 
 
 // templates
 .site{
 	background: $primary_color;
 	margin:auto;
-	width:50%;
+	width:55%;
 	display:block;	
 }
 
@@ -118,4 +120,24 @@ $form_background: white;
 .editTask{
 	@extend .task;
 	background:white;
+}
+.completedTask{
+	@extend .task;
+	background:$completed_color;
+}
+.uncompletedTask{
+	@extend .task;
+	background:$uncompleted_color;
+}
+.completedMilestone{
+	@extend .milestone;
+	background:$completed_color;
+}
+.uncompletedMilestone{
+	@extend .milestone;
+	background:$uncompleted_color;	
+}
+.week{
+	display:inline-block;
+	margin:auto;
 }

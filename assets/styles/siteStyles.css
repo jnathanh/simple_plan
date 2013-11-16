@@ -1,14 +1,14 @@
 .site, .milestones {
   background: #29abe2;
   margin: auto;
-  width: 50%;
+  width: 55%;
   display: block; }
 
 .input_field {
   background: white;
   display: block; }
 
-.input_display, .milestone, .task, .editTask {
+.input_display, .milestone, .completedMilestone, .uncompletedMilestone, .task, .editTask, .completedTask, .uncompletedTask {
   background: #29abe2;
   display: block;
   outline: black solid thin; }
@@ -58,13 +58,13 @@ header {
   height: 100%;
   padding: 25px; }
 
-.milestone {
+.milestone, .completedMilestone, .uncompletedMilestone {
   height: 75px;
   width: 200px;
   margin-bottom: 25px;
   float: left; }
 
-.task, .editTask {
+.task, .editTask, .completedTask, .uncompletedTask {
   height: 25px;
   width: 300px;
   float: right;
@@ -97,3 +97,19 @@ header {
 
 .editTask {
   background: white; }
+
+.completedTask {
+  background: yellow; }
+
+.uncompletedTask {
+  background: red; }
+
+.completedMilestone {
+  background: yellow; }
+
+.uncompletedMilestone {
+  background: red; }
+
+.week {
+  display: inline-block;
+  margin: auto; }
