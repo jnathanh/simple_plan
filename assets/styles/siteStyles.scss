@@ -115,3 +115,7 @@ $form_background: white;
 	display:block;
 	margin: auto;
 }
+.editTask{
+	@extend .task;
+	background:white;
+}

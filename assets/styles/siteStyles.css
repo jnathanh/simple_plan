@@ -8,7 +8,7 @@
   background: white;
   display: block; }
 
-.input_display, .milestone, .task {
+.input_display, .milestone, .task, .editTask {
   background: #29abe2;
   display: block;
   outline: black solid thin; }
@@ -64,7 +64,7 @@ header {
   margin-bottom: 25px;
   float: left; }
 
-.task {
+.task, .editTask {
   height: 25px;
   width: 300px;
   float: right;
@@ -94,3 +94,6 @@ header {
 .addTaskButton {
   display: block;
   margin: auto; }
+
+.editTask {
+  background: white; }

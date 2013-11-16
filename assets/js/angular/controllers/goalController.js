@@ -43,6 +43,26 @@ app.controller("goalController",function($scope, Restangular){
 			});
 	};
 	refreshTasks();
+	$scope.submitTask = function (newTaskName,goal){
+		taskAPI.post(
+			{
+				goalID: goal.id,
+				taskName: newTaskName,
+			}
+		);
+		refreshTasks();
+	};
+	$scope.deleteTask = function (task){
+		task.remove().then(function(){refreshTasks();});
+	};
+	$scope.updateTask = function(task, newName){
+		task.taskName = newName;
+		task.put().then(function(){
+			refreshTasks();
+		});
+
+	};
+
 
 	// $scope.$apply();
 });

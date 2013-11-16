@@ -17,13 +17,26 @@
                 <div class="milestone" >{{goal.goalName}}</div>                
             </div>
             <div class="taskWrapper" ng-show="!edit" >
-                <div class="taskBundle" ng-repeat="task in tasks">
-                    <img class="deleteTask" src="/images/production_files/minus.png" alt="delete task" height="21" width="21" ng-click="deleteTask(task)">
-                    <img class="deleteTask" src="/images/production_files/edit.png" alt="delete task" height="21" width="21" ng-click="editTask()">
-                    <div class="task">{{task.taskName}}</div>
+                <div class="taskBundle" ng-repeat="task in tasks | filter:goal.id">
+                    <div ng-init="editTask=false" ng-show="!editTask">
+                        <img class="deleteTask" src="/images/production_files/minus.png" alt="delete task" height="21" width="21" ng-click="deleteTask(task)">
+                        <img class="deleteTask" src="/images/production_files/edit.png" alt="delete task" height="21" width="21" ng-click="editTask=!editTask">
+                        <div class="task">{{task.taskName}}</div>                        
+                    </div>
+                    <div ng-show="editTask">
+                        <img class="deleteTask" src="/images/production_files/ok.png" alt="submit task" height="21" width="21" ng-click="updateTask(task, updatedTask)">
+                        <input class="addTask" ng-model="updatedTask"></input>
+                    </div>
                     <div class="clearRight"></div>
-                </div>                
-                <img class="addTaskButton" src="/images/production_files/add.png" alt="add task" height="21" width="21" ng-click="addTask()" ng-if="!add">
+                </div>
+                <div class="addTask">
+                    <img class="addTaskButton" src="/images/production_files/add.png" alt="add task" height="21" width="21" ng-click="addTask=!addTask" ng-init="addTask=false" ng-show="!addTask">
+                    <div ng-show="addTask">
+                        <input class="addTask" ng-model="newTask"></input>
+                        <div class="button" ng-click="submitTask(newTask,goal);addTask=!addTask">Add Task</div>
+                    </div>
+                </div>
+
             </div>
             <div ng-show="edit">
                 <img class="deleteMilestone" src="/images/production_files/ok.png" alt="submit milestone" height="42" width="42" ng-click="updateMilestone(goal, updatedMilestone)">
