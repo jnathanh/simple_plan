@@ -35,22 +35,27 @@ app.controller("goalController",function($scope, Restangular){
 		goalTask.completed = !goalTask.completed;
 		goalTask.put().then(function(){
 			refreshMilestones();
-			refreshTasks();
+			$scope.refreshTasks();
 		});
 	};
 ////////////// Tasks ///////////////////////////////   could probably modify these and the goals functions to have 1 set work for both later
 	$scope.currentWeek = 1;
 	$scope.tasks=[];
 	var taskAPI = Restangular.all('Tasks');
-	var refreshTasks = function () {
-		taskAPI.getList()  // GET: /Tasks
+	$scope.refreshTasks = function () {
+		console.log("called $scope.refreshTasks");
+		taskAPI.getList()  // GET: add {completed:true}
 			.then(function(data) {
 				// returns a list of Tasks
 				$scope.tasks = data;
 				console.log($scope.tasks);
 			});
 	};
-	refreshTasks();
+	$scope.refreshTasks();
+	$scope.advanceWeek = function(){
+		$scope.currentWeek++;
+		$scope.refreshTasks();
+	};
 	$scope.submitTask = function (newTaskName,goal){
 		taskAPI.post(
 			{
@@ -60,21 +65,21 @@ app.controller("goalController",function($scope, Restangular){
 				week: $scope.currentWeek
 			}
 		);
-		refreshTasks();
+		$scope.refreshTasks();
 	};
 	$scope.deleteTask = function (task){
-		task.remove().then(function(){refreshTasks();});
+		task.remove().then(function(){$scope.refreshTasks();});
 	};
 	$scope.updateTask = function(task, newName){
 		task.taskName = newName;
 		task.put().then(function(){
-			refreshTasks();
+			$scope.refreshTasks();
 		});
 	};
 	$scope.completeTask = function(task){
 		task.completed = true;
 		task.put().then(function(){
-			refreshTasks();
+			$scope.refreshTasks();
 		});
 	};
 

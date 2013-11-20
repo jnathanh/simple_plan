@@ -12,9 +12,9 @@
     <section class="milestones" ng-controller="goalController">
         <div class="week">
             <div class="week">
-                <img class="week" src="/images/production_files/minus.png" alt="decrement week" height="21" width="21" ng-click="currentWeek = currentWeek-1">
+                <img class="week" src="/images/production_files/minus.png" alt="decrement week" height="21" width="21" ng-click="currentWeek=currentWeek-1;refreshTasks()">
                 Week {{currentWeek}}
-                <img class="week" src="/images/production_files/add.png" alt="increment week" height="21" width="21" ng-click="currentWeek = currentWeek+1">            
+                <img class="week" src="/images/production_files/add.png" alt="increment week" height="21" width="21" ng-click="advanceWeek()">
             </div>
         </div>
         <div class="clear"></div>
@@ -27,7 +27,7 @@
                 <div ng-class="{true:'completedMilestone', false:'uncompletedMilestone'}[goal.completed==true]" >{{goal.goalName}}</div>
             </div>
             <div class="taskWrapper" ng-show="!edit" >
-                <div class="taskBundle" ng-repeat="task in tasks | filter:goal.id">
+                <div class="taskBundle" ng-repeat="task in tasks | filter:{goalID:goal.id, week:currentWeek}">
                     <div ng-init="editTask=false" ng-show="!editTask">
                         <img class="deleteTask" src="/images/production_files/minus.png" alt="delete task" height="21" width="21" ng-click="deleteTask(task)">
                         <img class="deleteTask" src="/images/production_files/edit.png" alt="delete task" height="21" width="21" ng-click="editTask=!editTask">
