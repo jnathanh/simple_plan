@@ -1,143 +1,39 @@
-$primary_color: #29ABE2;
-$primary_dark:#146f95;
-$secondary_color: #e26029;
+$primary_color: 	#29ABE2;
+$primary_dark:		#146f95;
+$primary_light:		#6cc5eb;
+$secondary_color: 	#e26029;
+$highlight_color:	white;
 $site_background: white;
 $form_background: white;
 $completed_color: yellow;
 $uncompleted_color: red;
-
-
-// templates
-.site{
-	background: $primary_color;
-	margin:auto;
-	width:55%;
-	display:block;	
-}
-
-.input_field{
- 	background:$form_background;
- 	display:block;
-}
-.input_display{
-	background:$primary_color;
-	display:block;
-	outline: black solid thin;
-}
-
-.clear{	clear:both;}
-.clearRight{clear:right;}
-
- header{
- 	height:50px;
- 	padding: 0px 25px;
- 	h1{
- 		color:$site_background;
- 		width: 50%;
- 		margin: auto;
- 		text-align:center;
- 	}
- }
-
- .button{
- 	background: $primary_color;
- 	color: white;
- 	font-size: 2em;
- 	text-align: center;
- 	width:auto;
- 	display:inline-block;
- 	padding:1em;
- 	text-decoration: none;
- 	&:hover{
- 		background:$primary_dark;
- 		cursor: pointer;
- 	}
- }
-
-// page styling
-
-// landing page
-.landing{
-	color:$primary_color;
-	width:90%;
-	margin:auto;
-	font-size:10em;
-	text-align:center;
-	padding-top: 120px;
-}
-.start{
-	width:90%;
-	margin:auto;
+html{
 	background:white;
 }
-
-// milestones page
- .milestones{
- 	@extend .site;
- 	height:100%;
- 	padding: 25px;
- }
-
- .milestone{
- 	@extend .input_display;
- 	height: 75px;
- 	width: 200px;
- 	margin-bottom:25px;
- 	float:left;
- }
- .task{
- 	@extend .input_display;
- 	height: 25px;
- 	width: 300px;
- 	float:right;
- 	margin-bottom: 25px;
- }
- .addMilestone {
- 	height: 7em;
- 	width: 200px;
- 	margin-bottom:25px;
- 	display: inline-block;
- 	float: left;
-}
-.add input{
-	display:inline-block;
-}
-.deleteMilestone{
-	padding: 10;	// this isn't working for some reason
-	float: left;
-}
-.addMilestoneButton {
-	display: block;
-	margin: auto;
-}
-.taskWrapper{
-	float:right;
-}
-.addTaskButton{
-	display:block;
-	margin: auto;
-}
-.editTask{
-	@extend .task;
-	background:white;
-}
-.completedTask{
-	@extend .task;
-	background:$completed_color;
-}
-.uncompletedTask{
-	@extend .task;
-	background:$uncompleted_color;
-}
-.completedMilestone{
-	@extend .milestone;
-	background:$completed_color;
-}
-.uncompletedMilestone{
-	@extend .milestone;
-	background:$uncompleted_color;	
+h1{
+	font-size:6em;
 }
 .week{
-	display:inline-block;
-	margin:auto;
+	font-size: 3em;
+}
+.milestone{
+	font-size:2em;
+}
+.task{
+	font-size:1em;
+}
+.milestone-task-container{
+	background:$primary_light;
+}
+.completed{
+	background:$primary_dark;
+}
+.uncompleted{
+	background:$primary_light;
+}
+.addNew{
+	color:$highlight_color;
+}
+.camo{
+	color:$primary_light;
 }

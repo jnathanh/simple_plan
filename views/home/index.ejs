@@ -4,64 +4,78 @@
 <script src='/js/angular/controllers/goalController.js' type='text/javascript'></script>
 
 <body ng-app="goalApp">
-    <header class="site">
-        <div>
-            <h1>SimplyPlan</h1>
+    <header class="container">
+        <div class="row">
+            <h1 class="col-md-12 title text-center">SimplyPlan</h1>
         </div>  
     </header>
-    <section class="milestones" ng-controller="goalController">
-        <div class="week">
-            <div class="week">
-                <img class="week" src="/images/production_files/minus.png" alt="decrement week" height="21" width="21" ng-click="currentWeek=currentWeek-1;refreshTasks()">
+    <section class="container milestone-task-container" ng-controller="goalController">
+        <div class="row text-center">
+            <div class="col-md-7"> </div>
+            <div class="week col-md-4" style="">
+                <span class="glyphicon glyphicon-chevron-left" ng-click="currentWeek=currentWeek-1;refreshTasks()"></span>
                 Week {{currentWeek}}
-                <img class="week" src="/images/production_files/add.png" alt="increment week" height="21" width="21" ng-click="advanceWeek()">
+                <span class="glyphicon glyphicon-chevron-right" ng-click="advanceWeek()"></span>
             </div>
         </div>
-        <div class="clear"></div>
-        <div class="newGoal" ng-init="edit = false" ng-repeat="goal in goals">
-            <div class="milestoneWrapper" ng-show="!edit">
-                <img class="deleteMilestone" src="/images/production_files/minus.png" alt="delete milestone" height="32" width="32" ng-click="deleteMilestone(goal)">
-                <img class="deleteMilestone" src="/images/production_files/edit.png" alt="edit milestone" height="32" width="32" ng-click="edit=!edit">
-                <img class="deleteMilestone" src="/images/production_files/check.png" alt="complete milestone" height="32" width="32" ng-click="toggleCompletion(goal)" ng-show="!goal.completed">
-                <img class="deleteMilestone" src="/images/production_files/uncheck.png" alt="uncomplete milestone" height="32" width="32" ng-click="toggleCompletion(goal)" ng-show="goal.completed">
-                <div ng-class="{true:'completedMilestone', false:'uncompletedMilestone'}[goal.completed==true]" >{{goal.goalName}}</div>
-            </div>
-            <div class="taskWrapper" ng-show="!edit" >
-                <div class="taskBundle" ng-repeat="task in tasks | filter:{goalID:goal.id, week:currentWeek}">
-                    <div ng-init="editTask=false" ng-show="!editTask">
-                        <img class="deleteTask" src="/images/production_files/minus.png" alt="delete task" height="21" width="21" ng-click="deleteTask(task)">
-                        <img class="deleteTask" src="/images/production_files/edit.png" alt="delete task" height="21" width="21" ng-click="editTask=!editTask">
-                        <img class="deleteTask" src="/images/production_files/check.png" alt="complete task" height="21" width="21" ng-click="toggleCompletion(task)" ng-show="!task.completed">
-                        <img class="deleteTask" src="/images/production_files/uncheck.png" alt="uncomplete task" height="21" width="21" ng-click="toggleCompletion(task)" ng-show="task.completed">
-                        <div ng-class="{true:'completedTask', false:'uncompletedTask'}[task.completed==true]">{{task.taskName}}</div>                        
+        <div class="row"></div>
+        <div class="row" ng-init="edit = false;show=false" ng-repeat="goal in goals">
+<!--MSton--><div class="col-md-6">
+	            <div class="col-md-3" ng-show="!edit">
+	                <img class="" src="/images/production_files/minus.png" alt="delete milestone" height="32" width="32" ng-click="deleteMilestone(goal)">
+	                <img class="" src="/images/production_files/edit.png" alt="edit milestone" height="32" width="32" ng-click="edit=!edit">
+	                <img class="" src="/images/production_files/check.png" alt="complete milestone" height="32" width="32" ng-click="toggleCompletion(goal)" ng-show="!goal.completed">
+	                <img class="" src="/images/production_files/uncheck.png" alt="uncomplete milestone" height="32" width="32" ng-click="toggleCompletion(goal)" ng-show="goal.completed">
+	            </div>
+				<div class="col-md-9 milestone" ng-show="!edit" ng-class="{true:'completed', false:'uncompleted'}[goal.completed==true]" >{{goal.goalName}}</div>
+	            <div ng-show="edit">
+	            	<div class="col-md-3">
+		                <img class="" src="/images/production_files/ok.png" alt="submit milestone" height="42" width="42" ng-click="updateMilestone(goal, updatedMilestone)">        		
+	            	</div>
+	                <input class="col-md-9" type="text" value="testing" ng-model="updatedMilestone">{{goal.goalName}}</input>
+	            </div>
+	        </div>
+<!--task--> <div class="col-md-6">
+                <div class="row" ng-repeat="task in tasks | filter:{goalID:goal.id, week:currentWeek}">
+                    <div ng-mouseenter="show=!show" ng-mouseleave="show=!show">
+                        <div class="col-md-3" ng-show="!show && !editTask"></div>
+<!-- icons -->          <div class="col-md-3" ng-init="editTask=false" ng-show="!editTask && show">
+                            <img class="" src="/images/production_files/minus.png" alt="delete task" height="15" width="15" ng-click="deleteTask(task)">
+                            <img class="" src="/images/production_files/edit.png" alt="delete task" height="15" width="15" ng-click="editTask=!editTask">
+                            <img class="" src="/images/production_files/check.png" alt="complete task" height="15" width="15" ng-click="toggleCompletion(task)" ng-show="!task.completed">
+                            <img class="" src="/images/production_files/uncheck.png" alt="uncomplete task" height="15" width="15" ng-click="toggleCompletion(task)" ng-show="task.completed">
+                        </div>
+                        <div class="col-md-9 task" ng-show="!editTask" ng-class="{true:'completed', false:'uncompleted'}[task.completed==true]">{{task.taskName}}</div>
+<!-- edit task -->      <div ng-show="editTask">
+                            <div class="col-md-3">
+                                <img class="" src="/images/production_files/ok.png" alt="submit task" height="21" width="21" ng-click="updateTask(task, updatedTask)">                      
+                            </div>
+                            <input class="col-md-9" ng-model="updatedTask"></input>
+                        </div>
+                        <div class=""></div>
                     </div>
-                    <div ng-show="editTask">
-                        <img class="deleteTask" src="/images/production_files/ok.png" alt="submit task" height="21" width="21" ng-click="updateTask(task, updatedTask)">
-                        <input class="addTask" ng-model="updatedTask"></input>
-                    </div>
-                    <div class="clearRight"></div>
                 </div>
-                <div class="addTask">
-                    <img class="addTaskButton" src="/images/production_files/add.png" alt="add task" height="21" width="21" ng-click="addTask=!addTask" ng-init="addTask=false" ng-show="!addTask">
+<!--add task--> <div class="row text-center" ng-init="ashow=false" ng-mouseenter="ashow=!ashow" ng-mouseleave="ashow=!ashow">
+                	<div class="col-md-3 camo" ng-show="!addTask">test</div>
+                    <div class="addNew" ng-click="addTask=!addTask" ng-init="addTask=false" ng-show="!addTask && ashow">Add New Task</div>
                     <div ng-show="addTask">
-                        <input class="addTask" ng-model="newTask"></input>
-                        <div class="button" ng-click="submitTask(newTask,goal);addTask=!addTask">Add Task</div>
+                        <button type="button" class="btn btn-default col-md-3" ng-click="submitTask(newTask,goal);addTask=!addTask">Add Task</button>
+                        <input class="col-md-9" ng-model="newTask"></input>
                     </div>
                 </div>
-
-            </div>
-            <div ng-show="edit">
-                <img class="deleteMilestone" src="/images/production_files/ok.png" alt="submit milestone" height="42" width="42" ng-click="updateMilestone(goal, updatedMilestone)">
-                <input class="addMilestone" ng-model="updatedMilestone"></input>
             </div>
             <div class="clear"></div>
         </div>
-        <div class="add">
-            <img class="addMilestoneButton" src="/images/production_files/add.png" alt="add milestone" height="42" width="42" ng-click="add=!add" ng-init="add=false" ng-show="!add">
-            <div ng-show="add">
-                <input class="addMilestone" ng-model="newMilestone"></input>
-                <div class="button" ng-click="submitMilestone(newMilestone);add=!add">Add Milestone</div>
-            </div>
+        <div class="row text-center">
+<!--+MStone--><div class="col-md-6" ng-init="bshow=false" ng-mouseenter="bshow=!bshow" ng-mouseleave="bshow=!bshow">
+        		<div class="col-md-1 camo" ng-show="!add">test</div>
+	            <!-- <img class="" src="/images/production_files/add.png" alt="add milestone" height="42" width="42" ng-click="add=!add" ng-init="add=false" ng-show="!add && bshow"> -->
+                <div class="addNew" ng-click="add=!add" ng-init="add=false" ng-show="!add && bshow">Add New Milestone</div>
+                <button type="button" class="btn btn-default col-md-3" ng-show="add" ng-click="submitMilestone(newMilestone);add=!add">Add Milestone</button>
+	            <div ng-show="add">
+	                <input class="" ng-model="newMilestone"></input>
+	            </div>        		
+        	</div>
         </div>
     </section>
 

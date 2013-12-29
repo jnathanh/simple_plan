@@ -1,115 +1,29 @@
-.site, .milestones {
-  background: #29abe2;
-  margin: auto;
-  width: 55%;
-  display: block; }
-
-.input_field {
-  background: white;
-  display: block; }
-
-.input_display, .milestone, .completedMilestone, .uncompletedMilestone, .task, .editTask, .completedTask, .uncompletedTask {
-  background: #29abe2;
-  display: block;
-  outline: black solid thin; }
-
-.clear {
-  clear: both; }
-
-.clearRight {
-  clear: right; }
-
-header {
-  height: 50px;
-  padding: 0px 25px; }
-  header h1 {
-    color: white;
-    width: 50%;
-    margin: auto;
-    text-align: center; }
-
-.button {
-  background: #29abe2;
-  color: white;
-  font-size: 2em;
-  text-align: center;
-  width: auto;
-  display: inline-block;
-  padding: 1em;
-  text-decoration: none; }
-  .button:hover {
-    background: #146f95;
-    cursor: pointer; }
-
-.landing {
-  color: #29abe2;
-  width: 90%;
-  margin: auto;
-  font-size: 10em;
-  text-align: center;
-  padding-top: 120px; }
-
-.start {
-  width: 90%;
-  margin: auto;
+html {
   background: white; }
 
-.milestones {
-  height: 100%;
-  padding: 25px; }
-
-.milestone, .completedMilestone, .uncompletedMilestone {
-  height: 75px;
-  width: 200px;
-  margin-bottom: 25px;
-  float: left; }
-
-.task, .editTask, .completedTask, .uncompletedTask {
-  height: 25px;
-  width: 300px;
-  float: right;
-  margin-bottom: 25px; }
-
-.addMilestone {
-  height: 7em;
-  width: 200px;
-  margin-bottom: 25px;
-  display: inline-block;
-  float: left; }
-
-.add input {
-  display: inline-block; }
-
-.deleteMilestone {
-  padding: 10;
-  float: left; }
-
-.addMilestoneButton {
-  display: block;
-  margin: auto; }
-
-.taskWrapper {
-  float: right; }
-
-.addTaskButton {
-  display: block;
-  margin: auto; }
-
-.editTask {
-  background: white; }
-
-.completedTask {
-  background: yellow; }
-
-.uncompletedTask {
-  background: red; }
-
-.completedMilestone {
-  background: yellow; }
-
-.uncompletedMilestone {
-  background: red; }
+h1 {
+  font-size: 6em; }
 
 .week {
-  display: inline-block;
-  margin: auto; }
+  font-size: 3em; }
+
+.milestone {
+  font-size: 2em; }
+
+.task {
+  font-size: 1em; }
+
+.milestone-task-container {
+  background: #6cc5eb; }
+
+.completed {
+  background: #146f95; }
+
+.uncompleted {
+  background: #6cc5eb; }
+
+.addNew {
+  color: white; }
+
+.camo {
+  color: #6cc5eb; }
