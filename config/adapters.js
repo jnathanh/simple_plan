@@ -20,7 +20,11 @@ module.exports.adapters = {
 
   mongo: {
     module: 'sails-mongo',
-    url: "mongodb://localhost:27017/SimplyPlan", 
+    url: 'mongodb://admin:simple@paulo.mongohq.com:10039/simple_plan_db'
+  },
+  localMongo:{
+    module:'sails-mongo',
+    url: 'mongodb://localhost:27017/SimplyPlan'
   },
   
   // Persistent adapter for DEVELOPMENT ONLY
