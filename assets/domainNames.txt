@@ -1,3 +1,14 @@
 simplechange.us
 sinplea.com (available, basque)
 simpel.us (available, danish)
+lihtne.com (available, estonian)
+samanlaisuus.com (available, finnish)
+simplex.org/us (available, latin)
+sinzigliu.com (available, sardinian)
+senplice.com (available, venetian)
+syml.us (available, welsh)
+itsnotgreek.com (available)
+	απλός (aplós, aa-ploshh), greek for "simple"
+	tagline: "It's not Greek, it's simple"
+
+*the site I'm referenceing for different languages: http://www.logosdictionary.org/index.php?code=196357&from=IT
