@@ -1,24 +1,36 @@
 {
-    "name": "goalAPI",
-    "private": true,
-    "version": "0.0.0",
-    "description": "a Sails application",
-    "dependencies": {
-        "sails": "0.9.7",
-        "grunt": "0.4.1",
-        "sails-disk": "~0.9.0",
-        "ejs": "0.8.4",
-        "optimist": "0.3.4",
-        "mongodb":"*",
-        "sails-mongo":"0.9.x",
-        "sails-mysql":"*"
-    },
-    "scripts": {
-        "start": "node app.js",
-        "debug": "node debug app.js"
-    },
-    "main": "app.js",
-    "repository": "",
-    "author": "",
-    "license": ""
+  "name": "goalAPI",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "dependencies": {
+    "sails": "0.9.7",
+    "grunt": "0.4.1",
+    "sails-disk": "~0.9.0",
+    "ejs": "0.8.4",
+    "optimist": "0.3.4",
+    "mongodb": "*",
+    "sails-mongo": "0.9.x",
+    "sails-mysql": "*"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node debug app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jnathanh/simple_plan.git"
+  },
+  "author": "Nathan Hanna",
+  "license": "BSD-2-Clause",
+  "devDependencies": {},
+  "keywords": [
+    "'plan'",
+    "'goals'",
+    "'metrics'"
+  ],
+  "bugs": {
+    "url": "https://github.com/jnathanh/simple_plan/issues"
+  }
 }
